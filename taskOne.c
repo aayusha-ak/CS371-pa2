@@ -241,7 +241,7 @@ void run_client() {
         total_lost += thread_data[i].lost_cnt;
     }
 
-    printf("\n FINAL TOTAL \n")
+    printf("\n FINAL TOTAL \n");
     printf("TX:   %ld\n", total_tx);
     printf("RX:   %ld\n", total_rx);
     printf("LOST: %ld\n", total_lost);
