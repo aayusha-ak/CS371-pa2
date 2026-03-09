@@ -216,10 +216,8 @@ void run_client() {
         thread_data[i].next_seq = 0; // next sequence number to send
         thread_data[i].in_flight = 0; // request currenlty waiting ACK
 
-        for (int i = 0; i < num_client_threads; i++) {
-        thread_data[i].thread_id = i;   //track thread
-
-
+        thread_data[i].thread_id = i;
+        
         //initialize wiindow slots are availble,
         //acked = 1, means slot is free to reuse
         for (int j = 0; j < 1024; j++)
