@@ -60,7 +60,7 @@ typedef struct {
     long lost_cnt; //total packets that are considered lost
     long next_seq; //sequence number for the next packet
     int in_flight; // number of requests sent that are not acknowledged yet
-
+    int thread_id;
     //sliding window tracing - build to tracks each outstanding request
     struct {
         int seq_num; //sequence number of packet
@@ -215,6 +215,10 @@ void run_client() {
         thread_data[i].lost_cnt = 0; //packets considered lost
         thread_data[i].next_seq = 0; // next sequence number to send
         thread_data[i].in_flight = 0; // request currenlty waiting ACK
+
+        for (int i = 0; i < num_client_threads; i++) {
+        thread_data[i].thread_id = i;   //track thread
+
 
         //initialize wiindow slots are availble,
         //acked = 1, means slot is free to reuse
