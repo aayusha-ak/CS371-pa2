@@ -183,8 +183,9 @@ void *client_thread_func(void *arg) {
     }
 
 
-    printf("Thread done: tx=%ld rx=%ld lost=%ld\n",
-           data->tx_cnt, data->rx_cnt, data->lost_cnt);
+    printf("Thread %d done: tx=%ld rx=%ld lost=%ld\n",
+       data->thread_id, data->tx_cnt, data->rx_cnt, data->lost_cnt);
+
 
     close(data->socket_fd);
     close(data->epoll_fd);
